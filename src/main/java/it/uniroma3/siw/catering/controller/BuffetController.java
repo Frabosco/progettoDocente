@@ -111,13 +111,18 @@ public class BuffetController {
 	}
 
 	@GetMapping("/admin/editBuffet/{buffetId}")
-	public String editBuffet(@PathVariable("buffetId") Long buffetId, @Valid @ModelAttribute(value = "buffet") Buffet buffet, Model model) {
-		if(buffetService.alreadyExists(buffet.getId())){
-			buffetService.save(buffet, buffet.getChef());
-			return "home";
-		}
-		else
-			return "admin/editBuffet";
+	public String editBuffet(@PathVariable("buffetId") Long buffetId, Model model) {
+		model.addAttribute("buffet", buffetService.findById(buffetId));
+		return "admin/editBuffet";
+	}
+
+	@PostMapping("/admin/editBuffet")
+	public String editBuffet(@Valid @ModelAttribute(value="buffet") Buffet buffet, Model model) {
+		Buffet buffeTemp=buffetService.findById(buffet.getId());
+		buffeTemp.setNome(buffet.getNome());
+		buffeTemp.setDescrizione(buffet.getDescrizione());
+		buffetService.save(buffeTemp, buffeTemp.getChef());
+		return "admin/home";
 	}
 	
 	@GetMapping("/admin/removeBuffet")

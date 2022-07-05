@@ -18,6 +18,7 @@
 					<p th:each="err : ${#fields.globalErrors()}" th:text="${err}">...</p>
 				</div>
 				<input th:field="*{id}" type="hidden">
+				<input th:field="*{chef}" type="hidden">
 				<div>
 					<div>Nome: </div>
 					<div><input th:field="*{nome}" required/></div>
