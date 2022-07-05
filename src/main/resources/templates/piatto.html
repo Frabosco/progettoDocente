@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+	<head th:replace="fragments/base.html :: headerfiles('piatto')">
+	</head> 
+
+	<body>
+		<header th:replace="fragments/base.html :: intestazione"></header>
+		<br>
+		<br>
+		<br>
+		<div class="text-center vh-100">
+			<div>
+				<div><strong>Nome: </strong>
+					<span th:text="${piatto.nome}">Piatto</span>
+				</div>
+				<div><strong>Descrizione: </strong>
+					<span th:text="${piatto.descrizione}">Descrizione</span>
+				</div>
+			</div>
+			<div th:if="${!piatto.ingredienti.empty}">Lista ingredienti:
+				<ul>
+					<li th:each="ingrediente: ${piatto.ingredienti}">
+						<a th:href="@{'/ingrediente' + '/' + ${ingrediente.id}}"
+						   th:text="${ingrediente.nome}">Piatto</a>
+					</li>	   	
+				</ul>
+			</div>
+		</div>
+		<footer th:replace="fragments/base.html :: footer"></footer>
+	</body>
+
+</html>

@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+    <head th:replace="fragments/base.html :: headerfiles('error')">
+    </head>
+    <body class="text-center">
+       <h1>Error!</h1>
+       <div>
+          <br />
+          <p>
+             There seems to be a problem with the page you requested (<span th:text="${path}" />).
+          </p>
+          <p th:text="${'Details: ' + message}" />
+          <p th:text="${'Status: ' + status}" />
+       </div>
+    </body>
+</html>

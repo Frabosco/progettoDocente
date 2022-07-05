@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+	<head th:replace="fragments/base.html :: headerfiles('buffet')">
+	</head> 
+
+	<body>
+		<header th:replace="fragments/base.html :: intestazione"></header>
+		<br>
+		<br>
+		<br>
+		<div class="container-fluid vh-100">
+			<img src="/images/sfondo.jpg" alt="Sfondo" class="w-100 vh-100">
+			<div class="position-absolute top-50 start-50 translate-middle text-center">
+				<div>
+					<div><strong>Nome: </strong>
+						<span th:text="${buffet.nome}">Buffet</span>
+					</div>
+					<div><strong>Descrizione: </strong>
+						<span th:text="${buffet.descrizione}">Descrizione</span>
+					</div>
+					<div><strong>Chef:</strong>
+						<span th:text="${buffet.chef}">Chef</span>
+					</div>
+				</div>
+				<div th:if="${!buffet.piatti.empty}">
+					<div>Piatti presenti nel buffet:</div>
+					<ul>
+						<li th:each="piatto: ${buffet.piatti}">
+							<a class="btn btn-dark py-2" role="button" th:href="@{'/piatto' + '/' + ${piatto.id}}" th:text="${piatto.nome}">Piatto</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<footer th:replace="fragments/base.html :: footer"></footer>
+	</body>
+</html>

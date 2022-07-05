@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="fragments/base.html :: headerfiles('remove buffet')">
+</head>
+
+<body>
+	<header th:replace="fragments/base.html :: intestazione"></header>
+	<br>
+	<br>
+	<br>
+	<div class="container-fluid vh-100">
+		<img src="/images/sfondo.jpg" alt="Sfondo" class="w-100 vh-100">
+		<div class="position-absolute top-50 start-50 translate-middle text-center">
+			<div>
+				<div>
+					<h3>Sei sicuro di voler eliminare il buffet <span th:text="${buffet.nome}">Buffet</span>?</h3>
+					<div>Descrizione: <span  th:text="${buffet.descrizione}">Descrizione</span></div>
+				</div>	
+				<div th:if="${!buffet.piatti.empty}"><strong>Piatti presenti nel buffet:</strong>
+					<ul>
+						<li th:each="piatto: ${buffet.piatti}">
+							<a class="nav-link" th:href="@{'/piatto' + '/' + ${piatto.id}}" th:text="${piatto.nome}">Piatto</a>
+						</li>	   	
+					</ul>
+				</div>
+				<div>
+					<a class="btn btn-dark py-2" role="button" th:href="@{'/admin' + '/confermaRemoveBuffet' + '/' + ${buffet.id}}">Conferma</a>
+				</div>
+			</div>
+		</div>
+		<footer th:replace="fragments/base.html :: footer"></footer>
+	</div>
+
+</body>
+
+</html>

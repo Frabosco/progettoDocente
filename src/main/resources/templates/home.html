@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+ 
+<html xmlns:th="http://www.thymeleaf.org">
+	<head th:replace="fragments/base.html :: headerfiles('home')">
+	</head> 
+	 
+	<body> 
+		<header th:replace="fragments/base.html :: intestazione"></header>
+		<br>
+		<br>
+		<br>
+		<div class="container-fluid vh-100">
+			<img src="/images/sfondo_.jpg" alt="Sfondo" class="w-100 vh-100">
+			<div class="position-absolute top-50 start-50 translate-middle text-white text-centre">
+				<h2>Offriamo buffet di ogni tipo preparati dai nostri chef</h2>
+				<h3>Per saperne di piu' consulta i nostri buffet e i nostri chef</h3>
+				<table class="w-100">
+					<tr>
+						<td>
+							<a class="btn btn-dark py-2" role="button" th:href="@{/chefs}">I nostri chef</a>
+						</td>
+						<td>
+							<a class="btn btn-dark py-2" role="button" th:href="@{/buffets}">I nostri buffet</a>
+						</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+		<footer th:replace="fragments/base.html :: footer"></footer>
+	</body>
+
+</html>

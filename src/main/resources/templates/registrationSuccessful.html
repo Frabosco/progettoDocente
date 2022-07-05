@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+ 
+<html xmlns:th="http://www.thymeleaf.org">
+	<head th:replace="fragments/base.html :: headerfiles('succes')">
+	</head> 
+	 
+	<body> 
+		<header th:replace="fragments/base.html :: intestazione"></header>
+		<br>
+		<br>
+		<br>
+		<div class="container-fluid vh-100">
+			<img src="/images/sfondo.jpg" alt="Sfondo" class="w-100 vh-100">
+			<div class="position-absolute top-50 start-50 translate-middle text-center">
+				<h3>La registrazione e' andata a buon fine!</h3>
+				<a class="btn btn-dark py-2" role="button" th:href="@{/login}">Effettua l'accesso</a>
+			</div>
+		</div>
+		<footer th:replace="fragments/base.html :: footer"></footer>
+	</body>
+
+</html>

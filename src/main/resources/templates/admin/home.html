@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+ 
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/base.html :: headerfiles('admin home')">
+</head>
+
+<body>
+		<header th:replace="fragments/base.html :: intestazione"></header>
+		<br>
+		<br>
+		<br>
+		<div class="container-fluid vh-100">
+			<img src="/images/sfondo_.jpg" alt="Sfondo" class="w-100 vh-100">
+			<div class="position-absolute top-50 start-50 translate-middle text-white text-centre">
+				<h3>Sezione riservata agli amministratori</h3>
+				<tr>
+					<td>
+						<a class="btn btn-dark py-2" role="button" th:href="@{/admin/chefForm}">Aggiungi chef</a>
+					</td>
+					<td>
+						<a class="btn btn-dark py-2" role="button" th:href="@{/admin/chefs/addBuffet}">Aggiungi buffet</a>
+					</td>
+					<td>
+						<a class="btn btn-dark py-2" role="button" th:href="@{/admin/editBuffet}">Modifica buffet</a>
+					</td>
+					<td>
+						<a class="btn btn-dark py-2" role="button" th:href="@{/admin/removeBuffet}">Rimuovi buffet</a>
+					</td>
+				</tr>
+			</div>
+		</div>
+		<footer th:replace="fragments/base.html :: footer"></footer>
+</body>
+
+</html>

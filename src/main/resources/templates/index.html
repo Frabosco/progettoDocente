@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+ 
+<html xmlns:th="http://www.thymeleaf.org">
+	<head th:replace="fragments/base.html :: headerfiles('Catering')">
+	</head> 
+	 
+	<body>
+		<header th:replace="fragments/base.html :: intestazione_2"></header>
+		<br>
+		<br>
+		<br>
+		<div class="container-fluid">
+			<img src="/images/sfondo_.jpg" alt="Sfondo" class="w-100 vh-100">
+			<div class="position-absolute top-50 start-50 translate-middle text-center">
+				<h1>Offriamo servizi di catering per tutti i tuoi eventi.</h1>
+				<div>
+					<h2>Esperienza decennale nel campo dei servizi catering</h2>
+					<h3>Se stai organizzando un evento, sei nel posto giusto</h3>
+				</div>
+				<div>
+				<h2><b>Accedi o registrati</b> per conoscere i nostri chefs e i buffet offerti</h2>
+				</div>
+				<hr>
+				<div>
+					<h2>Non esitare a contattarci</h2>
+					<h3>scrivi al nostro indirizzo: <b>info@catering.it</b></h3>
+					<h3>Oppure chiama il numero <b>+39 347 824 7430</b></h3>
+				</div>
+
+			</div>
+		</div>
+		<footer th:replace="fragments/base.html :: footer"></footer>
+ 	</body>
+
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="fragments/base.html :: headerfiles('selezionaChef')">
+</head>
+
+<body>
+		<header th:replace="fragments/base.html :: intestazione"></header>
+		<br>
+		<br>
+		<br>
+		<div class="container-fluid vh-100">
+			<img src="/images/sfondo.jpg" alt="Sfondo" class="w-100 vh-100">
+			<div class="position-absolute top-50 start-50 translate-middle text-center">
+				<div><h1>Seleziona uno tra i nostri chef</h1></div>
+				<div>
+					<ul>
+						<li th:each="chef: ${chefs}">
+							<table>
+								<tr>
+									<td><a class="nav-link" th:href="@{'/chef' + '/' + ${chef.id}}"	th:text="${chef.nome} + ' ' + ${chef.cognome}">Paolo Rossi</a></td>
+									<td><a class="btn btn-dark py-2" role="button" th:href="@{'/admin' + '/chef' + '/' + ${chef.id} + '/newBuffet'}"><span>Seleziona</span></a></td>
+								</tr>
+							</table>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<footer th:replace="fragments/base.html :: footer"></footer>
+	</body>
+
+</html>

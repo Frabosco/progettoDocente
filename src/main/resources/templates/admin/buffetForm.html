@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="fragments/base.html :: headerfiles('add buffet')">
+</head>
+
+<body>
+		<header th:replace="fragments/base.html :: intestazione"></header>
+		<br>
+		<br>
+		<br>
+		<div class="container-fluid vh-100">
+			<img src="/images/sfondo.jpg" alt="Sfondo" class="w-100 vh-100">
+			<div class="position-absolute top-50 start-50 translate-middle">
+			<form th:action="@{'/admin' + '/chef' + '/' + ${chef.id} + '/buffet'}" method="POST" th:object="${buffet}">
+				<div><h3>Inserisci un nuovo buffet</h3></div>
+					<div th:if="${#fields.hasGlobalErrors()}">
+				 	 <p th:each="err : ${#fields.globalErrors()}" th:text="${err}">...</p>
+				  	</div>
+				<div>
+					<div>Nome: </div>
+					<div><input th:field="*{nome}" required/></div>
+					<div th:if="${#fields.hasErrors('nome')}" th:errors="*{nome}"></div>
+				</div>
+				<div >
+					<div>Descrizione: </div>
+					<div><input th:field="*{descrizione}" required/></div>
+					<div th:if="${#fields.hasErrors('descrizione')}" th:errors="*{descrizione}"></div>
+				</div>
+				<button type="submit" class="btn btn-dark py-2">Conferma</button>
+			</form>
+		</div>
+		<footer th:replace="fragments/base.html :: footer"></footer>
+	</body>
+</html>

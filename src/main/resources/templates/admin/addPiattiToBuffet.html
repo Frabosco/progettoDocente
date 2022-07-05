@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="fragments/base.html :: headerfiles('add piatti')">
+</head>
+
+<body>
+	<header th:replace="fragments/base.html :: intestazione"></header>
+	<br>
+	<br>
+	<br>
+	<div class="container-fluid vh-100">
+		<img src="/images/sfondo.jpg" alt="Sfondo" class="w-100 vh-100">
+		<div class="position-absolute top-50 start-50 translate-middle text-center">
+			<div>
+				<div>
+					<h1 th:text="${buffet.nome}">Buffet</h1>
+					<div>Descrizione: <span  th:text="${buffet.descrizione}">Descrizione</span></div>
+				</div>	
+				<div th:if="${!buffet.piatti.empty}"><strong>Piatti presenti nel buffet:</strong>
+					<ul>
+						<li th:each="piatto: ${buffet.piatti}">
+							<a  class="nav-link" th:href="@{'/piatto' + '/' + ${piatto.id}}" th:text="${piatto.nome}">Piatto</a>
+						</li>	   	
+					</ul>
+				</div>
+				
+				<div th:if="${!piattiAssenti.empty}"><strong>Vuoi aggiungere uno dei seguenti piatti al buffet?</strong>
+					<ul>
+						<li th:each="piatto: ${piattiAssenti}">
+							<table>
+								<tr>
+									<td><a class="nav-link" th:href="@{'/piatto' + '/' + ${piatto.id}}" th:text="${piatto.nome}">Piatto</a></td>
+									<td><a class="btn btn-dark py-2" role="button" th:href="@{'/admin' + '/buffet' + '/' + ${buffet.id} + '/' + ${piatto.id}}">	<span >Aggiungi al buffet</span></a></td>
+								</tr>
+							</table>
+						</li>	   	
+					</ul>
+				</div>
+				<div>
+					<a class="btn btn-dark py-2" role="button" th:href="@{'/buffet' + '/' + ${buffet.id}}">Conferma</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<footer th:replace="fragments/base.html :: footer"></footer>
+</body>
+</html>

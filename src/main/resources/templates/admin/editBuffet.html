@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="fragments/base.html :: headerfiles('edit buffet')">
+</head>
+
+<body>
+	<header th:replace="fragments/base.html :: intestazione"></header>
+	<br>
+	<br>
+	<br>
+	<div class="container-fluid vh-100">
+		<img src="/images/sfondo.jpg" alt="Sfondo" class="w-100 vh-100">
+		<div class="position-absolute top-50 start-50 translate-middle text-center">
+			<form th:action="@{'/admin' + '/editBuffet'}" method="POST" th:object="${buffet}">
+				<div><h3>Modifica buffet nuovo buffet</h3></div>
+				<div th:if="${#fields.hasGlobalErrors()}">
+					<p th:each="err : ${#fields.globalErrors()}" th:text="${err}">...</p>
+				</div>
+				<input th:field="*{id}" type="hidden">
+				<div>
+					<div>Nome: </div>
+					<div><input th:field="*{nome}" required/></div>
+					<div th:if="${#fields.hasErrors('nome')}" th:errors="*{nome}"></div>
+				</div>
+				<div >
+					<div>Descrizione: </div>
+					<div><input th:field="*{descrizione}" required/></div>
+					<div th:if="${#fields.hasErrors('descrizione')}" th:errors="*{descrizione}"></div>
+				</div>
+				<button type="submit" class="btn btn-dark py-2">Modifica</button>
+			</form>
+		</div>
+	</div>
+	<footer th:replace="fragments/base.html :: footer"></footer>
+</body>
+
+</html>

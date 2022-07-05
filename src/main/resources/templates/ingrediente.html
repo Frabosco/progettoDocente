@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+	<head th:replace="fragments/base.html :: headerfiles('ingrediente')">
+	</head> 
+
+	<body>
+		<header th:replace="fragments/base.html :: intestazione"></header>
+		<br>
+		<br>
+		<br>
+		<div class="text-center vh-100">
+			<div><strong>Nome: </strong>
+				<span th:text="${ingrediente.nome}">Ingrediente</span>
+			</div>
+			<div><strong>Origine: </strong>
+				<span th:text="${ingrediente.origine}">Origine</span>
+			</div>
+			<div><strong>Descrizione: </strong>
+				<span th:text="${ingrediente.descrizione}">Descrizione</span>
+			</div>
+		</div>
+		<footer th:replace="fragments/base.html :: footer"></footer>
+	</body>
+</html>
